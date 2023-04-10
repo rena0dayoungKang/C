@@ -42,7 +42,7 @@ int main(){
 		int yen = (int)(koreanMoney / jpy);
 		if(yen % 1000 != 0){
 			yen = yen - (yen % 1000);
-			printf("엔 : %d엔\n", yen);
+			printf("엔 : %d엔드\n", yen);
 		} else {
 			printf("엔 : %d엔\n", yen);
 		}		
@@ -89,9 +89,9 @@ int main(){
 		int pound = (int)(koreanMoney / gbp);
 		if(pound % 5 != 0){
 			pound = pound - (int)(pound / 5);
-			printf("유로 : %d유로\n", pound);
+			printf("파운드 : %d파운드\n", pound);
 		} else {
-			printf("유로 : %d유로\n", pound);
+			printf("파운 : %d파운드\n", pound);
 		}
 		printf("거스름 : %.2f원\n", koreanMoney - (pound * gbp));
 		float change = koreanMoney - (pound * gbp);
