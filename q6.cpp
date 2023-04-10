@@ -91,7 +91,7 @@ int main(){
 			pound = pound - (int)(pound / 5);
 			printf("파운드 : %d파운드\n", pound);
 		} else {
-			printf("파운 : %d파운드\n", pound);
+			printf("파운드 : %d파운드\n", pound);
 		}
 		printf("거스름 : %.2f원\n", koreanMoney - (pound * gbp));
 		float change = koreanMoney - (pound * gbp);
