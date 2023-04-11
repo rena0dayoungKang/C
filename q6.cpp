@@ -15,7 +15,9 @@ int main(){
 	//2. 변수 설정
 	int koreanMoney;
 	int selectCountry;
-	
+	int dollar;
+	float change;
+	int roundChange;
 	
 	 
 	//3. 출력단 
@@ -29,10 +31,9 @@ int main(){
 		printf("기준 환율 : %.2f\n", USD);
 		printf("환전 결과\n");
 		printf("달러 : %d달러\n", (int)(koreanMoney / USD));
-		int dollar = (int)(koreanMoney / USD);
+		dollar = (int)(koreanMoney / USD);
 		printf("거스름 : %.2f원\n", koreanMoney - (dollar * USD));
-		float change = koreanMoney - (dollar * USD);
-		printf("거스름돈 : %.0lf원\n", change);
+		change = koreanMoney - (dollar * USD);
 	}
 	
 	
@@ -47,8 +48,7 @@ int main(){
 			printf("엔 : %d엔\n", yen);
 		}		
 		printf("거스름 : %.2f원\n", koreanMoney - (yen * JPY));
-		float change = koreanMoney - (yen * JPY);
-		printf("거스름돈 : %.0lf원\n", change);
+		change = koreanMoney - (yen * JPY);
 	}
 	
 	if(selectCountry == 3){
@@ -62,8 +62,7 @@ int main(){
 			printf("유로 : %d유로\n", euro);
 		}
 		printf("거스름 : %.2f원\n", koreanMoney - (euro * EUR));
-		float change = koreanMoney - (euro * EUR);
-		printf("거스름돈 : %.0lf원\n", change);
+		change = koreanMoney - (euro * EUR);
 	}
 	
 	if(selectCountry == 4){ 
@@ -79,8 +78,7 @@ int main(){
 			printf("위안 : %d위안\n", yuan);	
 		}
 		printf("거스름 : %.2f원\n", koreanMoney - (yuan * CNY));
-		float change = koreanMoney - (yuan * CNY);
-		printf("거스름돈 : %.0lf원\n", change);
+		change = koreanMoney - (yuan * CNY);
 	}
 	
 	if(selectCountry == 5){
@@ -94,8 +92,28 @@ int main(){
 			printf("파운드 : %d파운드\n", pound);
 		}
 		printf("거스름 : %.2f원\n", koreanMoney - (pound * GBP));
-		float change = koreanMoney - (pound * GBP);
-		printf("거스름돈 : %.0lf원\n", change);
+		change = koreanMoney - (pound * GBP);
 	}
+		roundChange = round((int)change / 10 * 10);
+		printf("거스름돈 : %d원\n", roundChange);
+		
+		int tenThousandWon = roundChange / 10000;
+		int fiveThousandWon = (roundChange - tenThousandWon * 10000) / 5000;
+		int thousandWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000) / 1000;		
+		int fiveHundredWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000) / 500;
+		int oneHundredWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000 - fiveHundredWon * 500) / 100;
+		int fiftyWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000 - fiveHundredWon * 500 - oneHundredWon * 100)  / 50;
+		int tenWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000 - fiveHundredWon * 500 - oneHundredWon * 100 - fiftyWon * 50) / 10;
+		
+		printf("10000원 : %d 개\n", tenThousandWon);
+    	printf("5000원 : %d 개\n", fiveThousandWon);
+    	printf("1000원 : %d 개\n", thousandWon);
+		printf("500원 : %d 개\n", fiveHundredWon);
+    	printf("100원 : %d 개\n", oneHundredWon);
+    	printf("50원 : %d 개\n", fiftyWon);
+    	printf("10원 : %d 개\n", tenWon);
+		
 	
+		
+	return 0;
 } 
