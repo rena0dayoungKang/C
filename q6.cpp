@@ -1,10 +1,10 @@
-//1. È¯Àü ÇÁ·Î±×·¥
-//if¹®°ú const »ç¿ëÇØº¸±â 
+//1. í™˜ì „ í”„ë¡œê·¸ë¨
+//ifë¬¸ê³¼ const ì‚¬ìš©í•´ë³´ê¸° 
 #include <stdio.h>
 #include <math.h>
 
 int main(){
-	//1. »ó¼ö ¼³Á¤ 
+	//1. ìƒìˆ˜ ì„¤ì • 
 	const float USD = 1319.44;
 	const float JPY = 9.95;
 	const float EUR = 1438.05;
@@ -12,7 +12,7 @@ int main(){
 	const float GBP = 1637.88;
 	
 	
-	//2. º¯¼ö ¼³Á¤
+	//2. ë³€ìˆ˜ ì„¤ì •
 	int koreanMoney;
 	int selectCountry;
 	int dollar;
@@ -20,82 +20,82 @@ int main(){
 	int roundChange;
 	
 	 
-	//3. Ãâ·Â´Ü 
-	printf("È¯ÀüÀ» ¿øÇÏ´Â ±İ¾×À» ÀÔ·ÂÇÏ¼¼¿ä(¿øÈ­) : ");
+	//3. ì¶œë ¥ë‹¨ 
+	printf("í™˜ì „ì„ ì›í•˜ëŠ” ê¸ˆì•¡ì„ ì…ë ¥í•˜ì„¸ìš”(ì›í™”) : ");
 	scanf("%d", &koreanMoney);
 
-	printf("È¯ÀüÇÒ ¿ÜÈ­¸¦ ¼±ÅÃÇÏ¼¼¿ä (1 :USD, 2 : JPY, 3 : EUR, 4 : CNY, 5 : GBP) :  ");
+	printf("í™˜ì „í•  ì™¸í™”ë¥¼ ì„ íƒí•˜ì„¸ìš” (1 :USD, 2 : JPY, 3 : EUR, 4 : CNY, 5 : GBP) :  ");
 	scanf("%d", &selectCountry);
 	
 	if(selectCountry == 1){
-		printf("±âÁØ È¯À² : %.2f\n", USD);
-		printf("È¯Àü °á°ú\n");
-		printf("´Ş·¯ : %d´Ş·¯\n", (int)(koreanMoney / USD));
+		printf("ê¸°ì¤€ í™˜ìœ¨ : %.2f\n", USD);
+		printf("í™˜ì „ ê²°ê³¼\n");
+		printf("ë‹¬ëŸ¬ : %dë‹¬ëŸ¬\n", (int)(koreanMoney / USD));
 		dollar = (int)(koreanMoney / USD);
-		printf("°Å½º¸§ : %.2f¿ø\n", koreanMoney - (dollar * USD));
+		printf("ê±°ìŠ¤ë¦„ : %.2fì›\n", koreanMoney - (dollar * USD));
 		change = koreanMoney - (dollar * USD);
 	}
 	
 	
 	if(selectCountry == 2){
-		printf("±âÁØ È¯À² : %.2f\n", JPY);
-		printf("È¯Àü °á°ú\n");
+		printf("ê¸°ì¤€ í™˜ìœ¨ : %.2f\n", JPY);
+		printf("í™˜ì „ ê²°ê³¼\n");
 		int yen = (int)(koreanMoney / JPY);
 		if(yen % 1000 != 0){
 			yen = yen - (yen % 1000);
-			printf("¿£ : %d¿£\n", yen);
+			printf("ì—” : %dì—”\n", yen);
 		} else {
-			printf("¿£ : %d¿£\n", yen);
+			printf("ì—” : %dì—”\n", yen);
 		}		
-		printf("°Å½º¸§ : %.2f¿ø\n", koreanMoney - (yen * JPY));
+		printf("ê±°ìŠ¤ë¦„ : %.2fì›\n", koreanMoney - (yen * JPY));
 		change = koreanMoney - (yen * JPY);
 	}
 	
 	if(selectCountry == 3){
-		printf("±âÁØ È¯À² : %.2f\n", EUR);
-		printf("È¯Àü °á°ú\n");
+		printf("ê¸°ì¤€ í™˜ìœ¨ : %.2f\n", EUR);
+		printf("í™˜ì „ ê²°ê³¼\n");
 		int euro = (int)(koreanMoney / EUR);
 		if(euro % 5 != 0){
 			euro = euro - (int)(euro / 5);
-			printf("À¯·Î : %dÀ¯·Î\n", euro);
+			printf("ìœ ë¡œ : %dìœ ë¡œ\n", euro);
 		} else {
-			printf("À¯·Î : %dÀ¯·Î\n", euro);
+			printf("ìœ ë¡œ : %dìœ ë¡œ\n", euro);
 		}
-		printf("°Å½º¸§ : %.2f¿ø\n", koreanMoney - (euro * EUR));
+		printf("ê±°ìŠ¤ë¦„ : %.2fì›\n", koreanMoney - (euro * EUR));
 		change = koreanMoney - (euro * EUR);
 	}
 	
 	if(selectCountry == 4){ 
-		printf("±âÁØ È¯À² : %.2f\n", CNY);
+		printf("ê¸°ì¤€ í™˜ìœ¨ : %.2f\n", CNY);
 		int yuan = (int)(koreanMoney / CNY);
-		printf("È¯Àü °á°ú : %dÀ§¾È\n", yuan);
+		printf("í™˜ì „ ê²°ê³¼ : %dìœ„ì•ˆ\n", yuan);
 		if(yuan < 100){
-			printf("%d À§¾È : 100À§¾È ´ÜÀ§·Î¸¸ ±¸¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù.", (int)yuan);
+			printf("%d ìœ„ì•ˆ : 100ìœ„ì•ˆ ë‹¨ìœ„ë¡œë§Œ êµ¬ë§¤í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.", (int)yuan);
 		} else if(yuan >= 100 && yuan % 100 != 0){
 			yuan = yuan - (yuan % 100);
-			printf("À§¾È : %dÀ§¾È\n", yuan);
+			printf("ìœ„ì•ˆ : %dìœ„ì•ˆ\n", yuan);
 		} else {
-			printf("À§¾È : %dÀ§¾È\n", yuan);	
+			printf("ìœ„ì•ˆ : %dìœ„ì•ˆ\n", yuan);	
 		}
-		printf("°Å½º¸§ : %.2f¿ø\n", koreanMoney - (yuan * CNY));
+		printf("ê±°ìŠ¤ë¦„ : %.2fì›\n", koreanMoney - (yuan * CNY));
 		change = koreanMoney - (yuan * CNY);
 	}
 	
 	if(selectCountry == 5){
-		printf("±âÁØ È¯À² : %.2f\n", GBP);
-		printf("È¯Àü °á°ú\n");
+		printf("ê¸°ì¤€ í™˜ìœ¨ : %.2f\n", GBP);
+		printf("í™˜ì „ ê²°ê³¼\n");
 		int pound = (int)(koreanMoney / GBP);
 		if(pound % 5 != 0){
 			pound = pound - (int)(pound / 5);
-			printf("ÆÄ¿îµå : %dÆÄ¿îµå\n", pound);
+			printf("íŒŒìš´ë“œ : %díŒŒìš´ë“œ\n", pound);
 		} else {
-			printf("ÆÄ¿îµå : %dÆÄ¿îµå\n", pound);
+			printf("íŒŒìš´ë“œ : %díŒŒìš´ë“œ\n", pound);
 		}
-		printf("°Å½º¸§ : %.2f¿ø\n", koreanMoney - (pound * GBP));
+		printf("ê±°ìŠ¤ë¦„ : %.2fì›\n", koreanMoney - (pound * GBP));
 		change = koreanMoney - (pound * GBP);
 	}
 		roundChange = round((int)change / 10 * 10);
-		printf("°Å½º¸§µ· : %d¿ø\n", roundChange);
+		printf("ê±°ìŠ¤ë¦„ëˆ : %dì›\n", roundChange);
 		
 		int tenThousandWon = roundChange / 10000;
 		int fiveThousandWon = (roundChange - tenThousandWon * 10000) / 5000;
@@ -105,13 +105,13 @@ int main(){
 		int fiftyWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000 - fiveHundredWon * 500 - oneHundredWon * 100)  / 50;
 		int tenWon = (roundChange - tenThousandWon * 10000 - fiveThousandWon * 5000 - thousandWon * 1000 - fiveHundredWon * 500 - oneHundredWon * 100 - fiftyWon * 50) / 10;
 		
-		printf("10000¿ø : %d °³\n", tenThousandWon);
-    	printf("5000¿ø : %d °³\n", fiveThousandWon);
-    	printf("1000¿ø : %d °³\n", thousandWon);
-		printf("500¿ø : %d °³\n", fiveHundredWon);
-    	printf("100¿ø : %d °³\n", oneHundredWon);
-    	printf("50¿ø : %d °³\n", fiftyWon);
-    	printf("10¿ø : %d °³\n", tenWon);
+		printf("10000ì› : %d ê°œ\n", tenThousandWon);
+    		printf("5000ì› : %d ê°œ\n", fiveThousandWon);
+    		printf("1000ì› : %d ê°œ\n", thousandWon);
+		printf("500ì› : %d ê°œ\n", fiveHundredWon);
+    		printf("100ì› : %d ê°œ\n", oneHundredWon);
+    		printf("50ì› : %d ê°œ\n", fiftyWon);
+    		printf("10ì› : %d ê°œ\n", tenWon);
 		
 	
 		
